@@ -6,7 +6,7 @@
 /*   By: vellery- <vellery-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/28 17:38:06 by vellery-          #+#    #+#             */
-/*   Updated: 2020/02/14 08:51:38 by vellery-         ###   ########.fr       */
+/*   Updated: 2020/03/03 19:11:25 by vellery-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include <wchar.h>
 # include "libft.h"
 # include <limits.h>
 # include <stdint.h>
@@ -23,9 +22,9 @@
 # include <stdlib.h>
 # include <float.h>
 
-# ifdef FT_PRINTF
-#  define BUFF_SIZE 1024
-# endif
+//# ifdef FT_PRINTF
+//#  define BUFF_SIZE 1024
+//# endif
 
 # define RES "\x1b[0m"
 # define RED "\x1b[31m"
@@ -55,7 +54,6 @@ typedef struct	s_arg
 }				t_arg;
 
 int				ft_printf(const char *format, ...);
-int				ft_fprintf(FILE *stream, const char *format, ...);
 int				ft_printf_fd(char *file, const char *format, ...);
 int				ft_printf_(va_list args, const char *format, int fd);
 int				save_format(t_arg *arg, const char *format);

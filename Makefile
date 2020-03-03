@@ -35,11 +35,11 @@ OBJ = $(addprefix $(OBJ_DIR), $(LIB_CFILES:.c=.o)) $(addprefix $(OBJ_DIR), $(PRI
 
 all: $(NAME)
 
-$(NAME): make_dir $(OBJ)
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ) $(INC)
 	ranlib $(NAME)
 
-make_dir:
+$(OBJ):
 	mkdir -p $(OBJ_DIR)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
