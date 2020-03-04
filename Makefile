@@ -25,28 +25,30 @@ PRINTF_CFILES = adding_to_buf.c color.c ft_printf.c helping.c print_char.c\
 				set_all_fields.c set_len_type.c unsigned_addchar.c ft_fprintf.c
 
 FLAGGS = -Wall -Wextra -Werror
-HFILES = -I inc/
+HFILES = libft.h ft_printf.h ft_fprintf.h get_next_line.h
+INC_DIR = inc/
 PRINTF_DIR = ft_printf/
 SRC_DIR = src/
 OBJ_DIR = obj/
+INC = $(addprefix $(INC_DIR), $(HFILES))
 SRC = $(addprefix $(SRC_DIR), $(LIB_CFILES)) $(addprefix $(PRINTF_DIR), $(PRINTF_CFILES))
 OBJ = $(addprefix $(OBJ_DIR), $(LIB_CFILES:.c=.o)) $(addprefix $(OBJ_DIR), $(PRINTF_CFILES:.c=.o))
 
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ) $(INC)
+$(NAME): $(OBJ_DIR) $(OBJ)
+	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
 
-$(OBJ):
+$(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-	gcc -c $(FLAGGS) $(HFILES) $< -o $@
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c $(INC)
+	gcc -c $(FLAGGS) -I $(INC_DIR) $< -o $@
 
-$(OBJ_DIR)%.o: $(PRINTF_DIR)%.c
-	gcc -c $(FLAGGS) $(HFILES) $< -o $@
+$(OBJ_DIR)%.o: $(PRINTF_DIR)%.c $(INC)
+	gcc -c $(FLAGGS) -I $(INC_DIR) $< -o $@
 
 clean:
 	@rm -rf $(OBJ_DIR)
