@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "ft_fprintf.h"
 
 static int		get_stream(FILE *stream)
 {
@@ -32,20 +31,5 @@ int				ft_fprintf(FILE *stream, const char *format, ...)
 	va_start(args, format);
 	ret = ft_printf_(args, format, get_stream(stream));
 	va_end(args);
-	return (ret);
-}
-
-int				ft_printf_fd(char *file, const char *format, ...)
-{
-	int		fd;
-	int		ret;
-	va_list	args;
-
-	ret = 0;
-	fd = open(file, O_CREAT | O_RDWR);
-	va_start(args, format);
-	ret = ft_printf_(args, format, fd);
-	va_end(args);
-	close(fd);
 	return (ret);
 }

@@ -15,7 +15,6 @@
 
 # include <string.h>
 # include <stdint.h>
-# include "get_next_line.h"
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -82,6 +81,9 @@ char			**ft_strsplit(char const *s, char c);
 char			*ft_strnjoin(char *s1, char *s2, int len_s1, int len_s2);
 int				ft_isspace(int c);
 int				ft_isupper(int c);
+int				ft_islower(int c);
+
+intmax_t		ft_atoi_base(char *str, int base);
 
 typedef struct	s_list
 {

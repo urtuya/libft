@@ -22,10 +22,6 @@
 # include <stdlib.h>
 # include <float.h>
 
-//# ifdef FT_PRINTF
-//#  define BUFF_SIZE 1024
-//# endif
-
 # define RES "\x1b[0m"
 # define RED "\x1b[31m"
 # define GREEN "\x1b[32m"
