@@ -19,6 +19,8 @@ int	**ft_matrix(int stb, int str)
 	int i;
 	int j;
 
+
+
 	i = 0;
 	if (!(mat = (int**)malloc(sizeof(int*) * str)))
 		return (0);
